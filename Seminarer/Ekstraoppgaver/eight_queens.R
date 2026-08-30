@@ -1,4 +1,5 @@
 
+library(tidyverse)
 
 #Funksjon for om de truer hverandre eller ikke
 t = function(x1,y1,x2,y2){
@@ -14,7 +15,7 @@ t = function(x1,y1,x2,y2){
 }
 
 
-true = function(x,gamle){
+true = function(x,row,gamle){
   
   row = length(gamle) + 1 # vi er en rad over de gamle x-verdiene
   if (row == 1){
@@ -26,7 +27,6 @@ true = function(x,gamle){
   for (r in 1:(row-1)){
     y2 = r
     x2 = gamle[r]
-    print(c(x1,y1,x2,y2))
     if ((t(x1,y1,x2,y2))== TRUE){
       truet_vektor = c(truet_vektor, TRUE)
     } else{
@@ -34,7 +34,7 @@ true = function(x,gamle){
       
     }
   }
-  print(truet_vektor)
+
   if (any(truet_vektor)== TRUE){
     return(TRUE)} else{
       return (FALSE)
@@ -42,4 +42,33 @@ true = function(x,gamle){
 }
 
 #skal nå jobbe oss oppover langs brettet
-check_row = function(ro)
+start = 1:8
+print(start)
+total = data.frame(start)
+
+c_0 = 1:8
+for (c in c_0){
+old = c(c) 
+r = 2
+while (r<=8){
+  c = 1
+  while (c<=8)
+
+    if (true(c,r,old) == FALSE){
+      old = c(old,c)
+      c = c + 1
+      
+    } else {
+      c = c + 1
+      
+    }
+  r = r + 1
+}
+print(old)
+if (length(old)== 8){
+
+total = total |> mutate(vek = old)}
+}
+View(total)
+
+print(old) #vi har produsert 1 løsning
