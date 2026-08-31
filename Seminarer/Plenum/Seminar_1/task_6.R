@@ -74,3 +74,12 @@ for (i in 1:1000){ #trekker 1000 utvalg
 }
 
 ggplot() + geom_histogram(aes(x = gjennomsnitt)) + labs(x = "Gjennomsnittinntekt", y = "Antall", title = "Bootstrapping")#Vi ser at gjennomsnittet er normalfordelt, som gir oss et bedre estimat for den sanne forvenintgsverdien av inntektene
+
+
+alder = data$age
+kjonn = data$female
+intekt = data$income
+
+model = lm(intekt ~ kjonn + alder)
+summary(model)
+
