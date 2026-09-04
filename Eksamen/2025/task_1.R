@@ -56,6 +56,11 @@ ny_tibble <- tibble(ny_tibble,vektor)
 View(ny_tibble)
 
 
-ggplot(ny_tibble) + geom_point(aes(x = Score, y = vektor))
+ggplot(ny_tibble) + geom_smooth(aes(x = Score, y = vektor)) #Det bør plottes som en smooth vektor, men vi ser at det er stor usikkerhet knyttet rundt dette
 
 cor(ny_tibble$Score, ny_tibble$vektor)
+
+
+u = long[long$Awarding == c("Finland","Ukraine"),]
+View(u)
+
